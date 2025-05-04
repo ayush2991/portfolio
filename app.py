@@ -25,9 +25,9 @@ def main():
             "link": "https://horoscope-ayush2991.streamlit.app/"
         },
         {
-            "title": "Project 3",
-            "description": "Description of project 3.",
-            "link": "https://example.com/project3"
+            "title": "Some Good News",
+            "description": "A simple news app that de-prioritizes anxiety-inducing news and emphasizes source credibility.",
+            "link": "https://some-good-news-ayush2991.streamlit.app/"
         },
         {
             "title": "Project 4",
