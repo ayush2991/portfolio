@@ -22,7 +22,7 @@ def main():
         {
             "title": "Horoscope",
             "description": "A simple horoscope app that provides daily horoscope readings.",
-            "link": "https://ayush2991-horoscope-app-kgd0sq.streamlit.app/"
+            "link": "https://horoscope-ayush2991.streamlit.app/"
         },
         {
             "title": "Project 3",
