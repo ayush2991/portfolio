@@ -30,9 +30,9 @@ def main():
             "link": "https://some-good-news-ayush2991.streamlit.app/"
         },
         {
-            "title": "Project 4",
-            "description": "Description of project 4.",
-            "link": "https://example.com/project4"
+            "title": "Pytorch Playground",
+            "description": "A dashboard for visualizing the training of a neural network using Pytorch.",
+            "link": "https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/"
         },
         {
             "title": "Project 5",
