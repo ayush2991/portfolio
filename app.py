@@ -35,9 +35,9 @@ def main():
             "link": "https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/"
         },
         {
-            "title": "Project 5",
-            "description": "Description of project 5.",
-            "link": "https://example.com/project5"
+            "title": "Jigsaw Comment Toxicity Challenge",
+            "description": "Detecting toxic comments using a machine learning model.",
+            "link": "https://jigsaw-comment-toxicity-challenge-ayush2991.streamlit.app/"
         },
         {
             "title": "Project 6",
