@@ -20,9 +20,9 @@ def main():
             "link": "https://ayush2991-hello-world-app-gasriq.streamlit.app/"
         },
         {
-            "title": "Horoscope",
-            "description": "A simple horoscope app that provides daily horoscope readings.",
-            "link": "https://horoscope-ayush2991.streamlit.app/"
+            "title": "Nutrition in Indian Meals",
+            "description": "A simple app that provides nutritional information about various Indian meals.",
+            "link": "https://nutrition-in-indian-meals-ayush2991.streamlit.app/"
         },
         {
             "title": "Some Good News",
