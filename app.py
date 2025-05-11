@@ -40,9 +40,9 @@ def main():
             "link": "https://jigsaw-comment-toxicity-challenge-ayush2991.streamlit.app/"
         },
         {
-            "title": "Project 6",
-            "description": "Description of project 6.",
-            "link": "https://example.com/project6"
+            "title": "Stock Market Dashboard",
+            "description": "A dashboard for visualizing stock market data.",
+            "link": "https://stock-market-dashboard-ayush2991.streamlit.app/"
         },
 
     ]
