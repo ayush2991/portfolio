@@ -9,6 +9,40 @@ def main():
         layout="wide",
     )
 
+    # Inject custom CSS for project cards
+    # This CSS aims to make cards in the same row have equal height
+    # and ensures a consistent internal layout for each card.
+    card_style = """
+    <style>
+    /* Target the Streamlit column's internal wrapper to make it a flex container
+       and ensure it takes up full height. This allows the .project-card
+       with height: 100% to expand correctly. */
+    div[data-testid="column"] > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .project-card {
+        border: 1px solid;
+        border-radius: 8px;             /* Rounded corners */
+        padding: 16px;                  /* Inner spacing */
+        margin-bottom: 16px;            /* Space below card (for stacked cards) */
+        
+        /* Default shadow, suitable for light theme or if data-theme attribute isn't picked up */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); 
+
+        display: flex;                  /* Enable flexbox for internal layout */
+        flex-direction: column;         /* Stack content (title, desc, link) vertically */
+        justify-content: space-between; /* Push link to the bottom */
+        height: 100%;                   /* Crucial: Card takes full height of its column cell */
+        width: 100%;                    /* Card takes full width of its column cell */
+        min-height: 240px;              /* Minimum height for all cards */
+    }
+    </style>
+    """
+    st.markdown(card_style, unsafe_allow_html=True)
+
     st.title("My Projects")
     st.write("Welcome to my projects showcase! Here are some of the projects I've worked on:")
 
@@ -50,23 +84,17 @@ def main():
     cols = st.columns(3)
     for i, project in enumerate(projects):
         with cols[i % 3]:
-            st.subheader(project["title"])
-            st.write(project["description"])
-            st.markdown(f"[View Project]({project['link']})")
+            st.markdown(f"""
+            <div class="project-card">
+                <div class="project-card-content">
+                    <h4>{project['title']}</h4>
+                    <p>{project['description']}</p>
+                </div>
+                <a href="{project['link']}" target="_blank">View Project</a>
+            </div>
+            """, unsafe_allow_html=True)
 
-    # Show more projects in a collapsible section in a grid layout
-    st.write("### More Projects")
-    st.write("Click below to see more projects.")
-    # Create a button to expand/collapse more projects
-    # This is a simple way to show/hide content in Streamlit
-    # You can also use st.expander for a more interactive approach
-    # Here we use st.expander to create a collapsible section
-    with st.expander("Show more projects"):
-        for i in range(7, 13):
-            st.subheader(f"Project {i}")
-            st.write(f"Description of project {i}.")
-            st.markdown(f"[View Project](https://example.com/project{i})")
-            st.write("Additional details about project {i} can be added here.")
+    
     # Add a footer
     st.write("---")
     st.write("Thank you for visiting my projects showcase!")
