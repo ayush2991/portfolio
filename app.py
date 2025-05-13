@@ -24,20 +24,66 @@ def main():
     }
 
     .project-card {
-        border: 1px solid;
+        border: 1px solid var(--lines, #e0e0e0); /* Theme-aware border */
         border-radius: 8px;             /* Rounded corners */
         padding: 16px;                  /* Inner spacing */
         margin-bottom: 16px;            /* Space below card (for stacked cards) */
         
         /* Default shadow, suitable for light theme or if data-theme attribute isn't picked up */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); 
-
         display: flex;                  /* Enable flexbox for internal layout */
         flex-direction: column;         /* Stack content (title, desc, link) vertically */
         justify-content: space-between; /* Push link to the bottom */
         height: 100%;                   /* Crucial: Card takes full height of its column cell */
         width: 100%;                    /* Card takes full width of its column cell */
-        min-height: 240px;              /* Minimum height for all cards, adjusted for better content fit */
+        min-height: 280px;              /* Increased minimum height for better content fit and consistency */
+    }
+
+    .project-card-content { /* Wrapper for title and description */
+        flex-grow: 1; /* Allows this section to expand, pushing badges/link down */
+    }
+
+    .project-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1rem; /* Space before badges or link */
+    }
+    .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+        opacity: 0.9;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        transition: opacity 0.2s ease;
+    }
+
+    .badge:hover {
+        opacity: 1;
+    }
+
+    .project-card a, .project-card a:visited {
+        color: var(--primary-color, #FF4B4B); /* Theme-aware link color */
+        text-decoration: none;
+    }
+    .project-card a:hover {
+        text-decoration: underline;
     }
     </style>
     """
@@ -51,11 +97,24 @@ def main():
         {
             "title": "Grounding LLMs with Web Search",
             "description": "LLMs are great at generating text, but they can make mistakes. This project leverages web search to locate sources that can corroborate claims made by LLMs.",
+            # Updated badge colors for better harmony and readability
+            "badges": [
+                {"text": "LLM", "color": "#FF4B4B"},             # A common, clear Red
+                {"text": "Search API", "color": "#17a2b8"},      # Teal/Info Blue
+                {"text": "Embeddings", "color": "#28a745"},        # A clear Green (often used for success/positive)
+                {"text": "Pandas", "color": "#6c757d"}       # Neutral Gray for general tools
+            ],
             "link": "https://grounding-llms-with-web-search.streamlit.app/"
         },
         {
             "title": "Nutrition in Indian Meals",
-            "description": "A simple app that provides nutritional information about various Indian meals. This project demonstrates practical application of data handling and user-friendly interface design in Streamlit.",
+            "description": "It's not easy to guess the nutritional value of Indian dishes you want to eat. This app helps you predict the nutritional value of a dish based on the closest match from a database of Indian meals. Or compare two dishes easily with visualizations.",
+            # Aligning with Streamlit's palette
+            "badges": [
+                {"text": "Pandas", "color": "#6c757d"},  # Neutral Gray for general tools
+                {"text": "Streamlit", "color": "#FF4B4B"},  # Streamlit's signature Red
+                {"text": "Data Visualization", "color": "#FFC107"},  # Mustard for Data Visualization
+            ],
             "link": "https://nutrition-in-indian-meals-ayush2991.streamlit.app/"
         }
     ]
@@ -73,6 +132,9 @@ def main():
                         <h3>{project['title']}</h3>
                         <p>{project['description']}</p>
                     </div>
+                    <div class="badges">
+                        {"".join([f'<span class="badge" style="background-color: {badge["color"]};">{badge["text"]}</span>' for badge in project.get("badges", [])])}
+                    </div>
                     <a href="{project['link']}" target="_blank">View Project</a>
                 </div>
                 """, unsafe_allow_html=True)
@@ -82,32 +144,33 @@ def main():
     # Add your other project details here
     projects = [
         {
-            "title": "Hello World",
-            "description": "My first app: Hello, World!",
-            "link": "https://ayush2991-hello-world-app-gasriq.streamlit.app/"
-        },
-        {
             "title": "Some Good News",
-            "description": "A simple news app that de-prioritizes anxiety-inducing news and emphasizes source credibility.",
+            "description": "Your daily news, but with a dose of positivity! This app uses a sentiment analysis model to prioritize positive news articles over anxiety-inducing ones. Filter by topic and country.",
+            "badges": [
+                {"text": "Sentiment Analysis", "color": "#FF4B4B"},  # Streamlit's signature Red
+                {"text": "News API", "color": "#17a2b8"},  # Teal/Info Blue
+                {"text": "Embeddings", "color": "#28a745"},  # A clear Green (often used for success/positive)
+            ],
             "link": "https://some-good-news-ayush2991.streamlit.app/"
         },
         {
             "title": "Pytorch Playground",
-            "description": "A dashboard for visualizing the training of a neural network using Pytorch.",
+            "description": "An interactive dashboard for visualizing the training of a neural network using Pytorch. You can play with the hyperparameters and see how they affect the training process.",
+            "badges": [
+                {"text": "Streamlit", "color": "#FF4B4B"},  # Streamlit's signature Red
+                {"text": "Pytorch", "color": "#007bff"},  # Bootstrap's primary blue
+                {"text": "Neural Networks", "color": "#28a745"},  # A clear Green (often used for success/positive)
+            ],
             "link": "https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/"
         },
         {
-            "title": "Jigsaw Comment Toxicity Challenge",
-            "description": "Detecting toxic comments using a machine learning model.",
+            "title": "Flagging Toxic Comments",
+            "description": "Live train a Pytorch model for various labels such as 'toxic', 'obscene' and 'threat' (or just use a pre-trained model). Then enter your own comment to get a live toxicity score!",
+            "badges": [
+                {"text": "ML Model", "color": "#FF4B4B"},  # Streamlit's signature Red
+            ],
             "link": "https://jigsaw-comment-toxicity-challenge-ayush2991.streamlit.app/"
         },
-        {
-            "title": "Stock Market Dashboard",
-            "description": "A dashboard for visualizing stock market data.",
-            "link": "https://stock-market-dashboard-ayush2991.streamlit.app/"
-        },
-        # "Nutrition in Indian Meals" is now in featured_projects, so removed from here to avoid duplication.
-        # If you want it to also appear in the grid below, you can keep it.
     ]
     # Display projects in a grid layout
     st.subheader("More Projects")
@@ -126,6 +189,9 @@ def main():
                     <h3>{project['title']}</h3>
                     <p>{project['description']}</p>
                 </div>
+                <div class="badges">
+                    {"".join([f'<span class="badge" style="background-color: {badge["color"]};">{badge["text"]}</span>' for badge in project.get("badges", [])])}
+                </div>
                 <a href="{project['link']}" target="_blank">View Project</a>
             </div>
             """, unsafe_allow_html=True)
@@ -138,12 +204,14 @@ def main():
 
     # Add a sidebar with navigation
     st.sidebar.image("https://placehold.co/600x400", caption="Aayush Agarwal")
-    st.sidebar.write("I am a software developer with a passion for building web applications.")
-    st.sidebar.markdown("## Links")
-    st.sidebar.markdown("https://linkedin.com/in/ayush2991")
-    st.sidebar.markdown("https://medium.com/@ayush2991")
-    st.sidebar.markdown("https://github.com/ayush2991")
-    st.sidebar.markdown("## Contact")
+    st.sidebar.title("About Me")
+    st.sidebar.write("I'm a *Machine Learning Engineer* with a passion for solving real-world problems using AI and data science. In my free time I write intuitive explanations for foundational data science concepts in my blog.")
+
+    st.sidebar.subheader("Links")
+    st.sidebar.markdown(":link: https://medium.com/@ayush2991")
+    st.sidebar.markdown(":link: https://linkedin.com/in/ayush2991")
+    st.sidebar.markdown(":link: https://github.com/ayush2991")
+    st.sidebar.subheader(":email: Contact")
     st.sidebar.write("You can reach me at ayush2991@gmail.com")
 
 if __name__ == "__main__":
