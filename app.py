@@ -104,7 +104,7 @@ def main():
                 {"text": "Embeddings", "color": "#28A745"},
                 {"text": "Pandas", "color": "#6C757D"}
             ],
-            "link": "https://grounding-llms-with-web-search.streamlit.app/"
+            "link": "https://ayush2991-grounding-llms-with-web-search.streamlit.app/"
         },
         {
             "title": "Nutrition in Indian Meals",
