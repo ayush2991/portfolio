@@ -99,21 +99,20 @@ def main():
             "description": "LLMs are great at generating text, but they can make mistakes. This project leverages web search to locate sources that can corroborate claims made by LLMs.",
             # Updated badge colors for better harmony and readability
             "badges": [
-                {"text": "LLM", "color": "#FF4B4B"},             # A common, clear Red
-                {"text": "Search API", "color": "#17a2b8"},      # Teal/Info Blue
-                {"text": "Embeddings", "color": "#28a745"},        # A clear Green (often used for success/positive)
-                {"text": "Pandas", "color": "#6c757d"}       # Neutral Gray for general tools
+                {"text": "LLM", "color": "#FF4B4B"},
+                {"text": "Search API", "color": "#17A2B8"},
+                {"text": "Embeddings", "color": "#28A745"},
+                {"text": "Pandas", "color": "#6C757D"}
             ],
             "link": "https://grounding-llms-with-web-search.streamlit.app/"
         },
         {
             "title": "Nutrition in Indian Meals",
             "description": "It's not easy to guess the nutritional value of Indian dishes you want to eat. This app helps you predict the nutritional value of a dish based on the closest match from a database of Indian meals. Or compare two dishes easily with visualizations.",
-            # Aligning with Streamlit's palette
             "badges": [
-                {"text": "Pandas", "color": "#6c757d"},  # Neutral Gray for general tools
-                {"text": "Streamlit", "color": "#FF4B4B"},  # Streamlit's signature Red
-                {"text": "Data Visualization", "color": "#FFC107"},  # Mustard for Data Visualization
+                {"text": "Pandas", "color": "#6C757D"},
+                {"text": "Streamlit", "color": "#FF8C00"},      # Dark Orange
+                {"text": "Data Visualization", "color": "#FFC107"}
             ],
             "link": "https://nutrition-in-indian-meals-ayush2991.streamlit.app/"
         }
@@ -147,9 +146,9 @@ def main():
             "title": "Some Good News",
             "description": "Your daily news, but with a dose of positivity! This app uses a sentiment analysis model to prioritize positive news articles over anxiety-inducing ones. Filter by topic and country.",
             "badges": [
-                {"text": "Sentiment Analysis", "color": "#FF4B4B"},  # Streamlit's signature Red
-                {"text": "News API", "color": "#17a2b8"},  # Teal/Info Blue
-                {"text": "Embeddings", "color": "#28a745"},  # A clear Green (often used for success/positive)
+                {"text": "Sentiment Analysis", "color": "#6A0DAD"}, # Purple
+                {"text": "News API", "color": "#0DCAF0"},           # Light Blue/Cyan
+                {"text": "Embeddings", "color": "#28A745"}
             ],
             "link": "https://some-good-news-ayush2991.streamlit.app/"
         },
@@ -157,9 +156,9 @@ def main():
             "title": "Pytorch Playground",
             "description": "An interactive dashboard for visualizing the training of a neural network using Pytorch. You can play with the hyperparameters and see how they affect the training process.",
             "badges": [
-                {"text": "Streamlit", "color": "#FF4B4B"},  # Streamlit's signature Red
-                {"text": "Pytorch", "color": "#007bff"},  # Bootstrap's primary blue
-                {"text": "Neural Networks", "color": "#28a745"},  # A clear Green (often used for success/positive)
+                {"text": "Streamlit", "color": "#FF8C00"},      # Dark Orange
+                {"text": "Pytorch", "color": "#007BFF"},        # Bright Blue
+                {"text": "Neural Networks", "color": "#20C997"} # Tealish Green
             ],
             "link": "https://ayush2991-pytorch-playground-app-rimmmd.streamlit.app/"
         },
@@ -167,7 +166,9 @@ def main():
             "title": "Flagging Toxic Comments",
             "description": "Live train a Pytorch model for various labels such as 'toxic', 'obscene' and 'threat' (or just use a pre-trained model). Then enter your own comment to get a live toxicity score!",
             "badges": [
-                {"text": "ML Model", "color": "#FF4B4B"},  # Streamlit's signature Red
+                {"text": "Pytorch", "color": "#007BFF"},        # Bright Blue
+                {"text": "Neural Networks", "color": "#20C997"}, # Tealish Green
+                {"text": "Streamlit", "color": "#FF8C00"},      # Dark Orange
             ],
             "link": "https://jigsaw-comment-toxicity-challenge-ayush2991.streamlit.app/"
         },
