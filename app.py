@@ -204,7 +204,7 @@ def main():
     st.write("Feel free to reach out if you have any questions or feedback.")
 
     # Add a sidebar with navigation
-    st.sidebar.image("https://placehold.co/600x400", caption="Aayush Agarwal")
+    st.sidebar.image("./data/profile.png", caption="Aayush Agarwal")
     st.sidebar.title("About Me")
     st.sidebar.write("I'm a *Machine Learning Engineer* with a passion for solving real-world problems using AI and data science. In my free time I write intuitive explanations for foundational data science concepts in my blog.")
 
