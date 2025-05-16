@@ -107,14 +107,16 @@ def main():
             "link": "https://ayush2991-grounding-llms-with-web-search.streamlit.app/"
         },
         {
-            "title": "Nutrition in Indian Meals",
-            "description": "It's not easy to guess the nutritional value of Indian dishes you want to eat. This app helps you predict the nutritional value of a dish based on the closest match from a database of Indian meals. Or compare two dishes easily with visualizations.",
+            "title": "Agentic RAG",
+            "description": "An agentic RAG (Retrieval-Augmented Generation) system that can answer any question about Harry Potter! It even cites its sources and rewrites queries if necessary.",
             "badges": [
-                {"text": "Pandas", "color": "#6C757D"},
-                {"text": "Streamlit", "color": "#FF8C00"},      # Dark Orange
-                {"text": "Data Visualization", "color": "#FFC107"}
+                {"text": "LLM", "color": "#FF4B4B"},
+                {"text": "Agents", "color": "#17A2B8"},
+                {"text": "Embeddings", "color": "#28A745"},
+                {"text": "Retrieval Augmented Generation", "color": "#6C757D"},
+                {"text": "Vector DB", "color": "#FF8C00"}
             ],
-            "link": "https://nutrition-in-indian-meals-ayush2991.streamlit.app/"
+            "link": "https://ayush2991-agentic-rag.streamlit.app/"
         }
     ]
 
@@ -172,10 +174,20 @@ def main():
             ],
             "link": "https://jigsaw-comment-toxicity-challenge-ayush2991.streamlit.app/"
         },
+        {
+            "title": "Nutrition in Indian Meals",
+            "description": "It's not easy to guess the nutritional value of Indian dishes you want to eat. This app helps you predict the nutritional value of a dish based on the closest match from a database of Indian meals. Or compare two dishes easily with visualizations.",
+            "badges": [
+                {"text": "Pandas", "color": "#6C757D"},
+                {"text": "Streamlit", "color": "#FF8C00"},      # Dark Orange
+                {"text": "Data Visualization", "color": "#FFC107"}
+            ],
+            "link": "https://nutrition-in-indian-meals-ayush2991.streamlit.app/"
+        }
     ]
     # Display projects in a grid layout
     st.subheader("More Projects")
-    cols = st.columns(3)
+    cols = st.columns(2)
     
     # Get titles of featured projects to avoid duplicating them in the "More Projects" grid
     featured_project_titles = [fp["title"] for fp in featured_projects]
@@ -183,7 +195,7 @@ def main():
     for i, project in enumerate(projects):
         if project["title"] in featured_project_titles:
             continue # Skip if this project was already featured
-        with cols[i % 3]:
+        with cols[i % 2]:
             st.markdown(f"""
             <div class="project-card">
                 <div class="project-card-content">
