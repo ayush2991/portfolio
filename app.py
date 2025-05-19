@@ -112,7 +112,6 @@ def main():
             "badges": [
                 {"text": "LLM", "color": "#FF4B4B"},
                 {"text": "Agents", "color": "#17A2B8"},
-                {"text": "Embeddings", "color": "#28A745"},
                 {"text": "Retrieval Augmented Generation", "color": "#6C757D"},
                 {"text": "Vector DB", "color": "#FF8C00"}
             ],
